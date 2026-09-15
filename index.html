@@ -864,7 +864,21 @@
       color: #ff8c42;
     }
 
-    /* RESPONSIVE */
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+
+    /* Tablet lớn (dưới 1024px) */
+    @media (max-width: 1024px) {
+      .container { padding: 0 18px 0; }
+      .banner { padding: 35px 30px; }
+      .banner-text h1 { font-size: 34px; }
+      .product-grid { gap: 20px; }
+      .footer-grid { gap: 35px; }
+      .footer { padding: 45px 30px 22px; }
+    }
+
+    /* Tablet (dưới 900px) */
     @media (max-width: 900px) {
       .footer-grid {
         grid-template-columns: 1fr 1fr;
@@ -873,23 +887,232 @@
       .footer { padding: 40px 25px 20px; }
     }
 
-    @media (max-width: 700px) {
-      .container { padding: 0 12px 0; }
-      .banner { flex-direction: column; text-align: center; padding: 30px 18px; }
-      .banner-emoji { font-size: 60px; margin-top: 15px; }
-      .banner-text h1 { font-size: 28px; }
-      .brand { font-size: 22px; }
-      .cart-modal { width: 95vw; padding: 18px; max-height: 90vh; }
-      .product-img { height: 140px; }
+    /* ===== MOBILE (dưới 768px) - 2 THẺ 1 HÀNG ===== */
+    @media (max-width: 768px) {
+      body { padding: 0 10px 10px; }
+
+      .container {
+        border-radius: 22px;
+        padding: 0 14px 0;
+      }
+
+      /* HEADER thu nhỏ */
+      .header {
+        padding: 16px 2px 12px;
+        margin-bottom: 18px;
+      }
+      .brand { font-size: 20px; }
+      .header-cart i {
+        font-size: 20px;
+        padding: 9px;
+      }
+      .cart-count {
+        width: 20px;
+        height: 20px;
+        font-size: 11px;
+        top: -4px;
+        right: -4px;
+      }
+
+      /* BANNER thu nhỏ */
+      .banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px 18px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+      }
+      .banner::after { font-size: 80px; }
+      .banner-text h1 { font-size: 22px; margin-bottom: 6px; }
+      .banner-text p { font-size: 14px; margin-bottom: 14px; }
+      .banner-btn {
+        padding: 10px 22px;
+        font-size: 14px;
+      }
+      .banner-emoji {
+        font-size: 50px;
+        margin-top: 10px;
+      }
+
+      /* SEARCH thu nhỏ */
+      .search-section { margin-bottom: 22px; }
+      .search-wrapper input {
+        padding: 12px 50px 12px 18px;
+        font-size: 14px;
+      }
+      .search-wrapper .search-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+      }
+
+      /* SECTION TITLE thu nhỏ */
+      .section-title {
+        font-size: 18px;
+        margin: 22px 0 14px 0;
+        gap: 8px;
+      }
+      .section-title i { font-size: 18px; }
+
+      /* ===== GRID 2 CỘT ===== */
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 22px;
+      }
+
+      /* THẺ SẢN PHẨM thu nhỏ */
+      .product-card {
+        border-radius: 16px;
+        padding: 10px 8px 12px;
+      }
+      .product-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .stock-badge {
+        top: 8px;
+        left: 8px;
+        font-size: 9px;
+        padding: 3px 7px;
+      }
+
+      .product-img {
+        height: 110px;
+        border-radius: 12px;
+        margin-bottom: 8px;
+      }
+
+      .product-name {
+        font-size: 13px;
+        min-height: 34px;
+        margin-bottom: 4px;
+        line-height: 1.25;
+        padding: 0 2px;
+      }
+
+      .product-price {
+        font-size: 16px;
+        margin: 2px 0 4px;
+      }
+      .product-price small {
+        font-size: 11px;
+        margin-left: 4px;
+      }
+
+      .product-stock {
+        font-size: 11px;
+        margin-bottom: 8px;
+      }
+
+      .buy-btn {
+        padding: 8px 10px;
+        font-size: 12px;
+        gap: 5px;
+      }
+      .buy-btn i { font-size: 11px; }
+
+      .no-result {
+        font-size: 13px;
+        padding: 25px 12px;
+      }
+
+      /* CART MODAL */
+      .cart-modal {
+        width: 94vw;
+        padding: 16px;
+        max-height: 88vh;
+        border-radius: 22px;
+      }
+      .cart-header h3 { font-size: 18px; }
+      .close-cart { width: 32px; height: 32px; font-size: 20px; }
+      .cart-items { max-height: 40vh; }
+      .cart-item { padding: 10px; gap: 10px; border-radius: 14px; }
+      .cart-item-icon { width: 45px; height: 45px; border-radius: 11px; }
+      .cart-item-name { font-size: 13px; }
+      .cart-item-price { font-size: 13px; }
+      .qty-btn { width: 24px; height: 24px; font-size: 13px; }
+      .cart-total { font-size: 17px; }
+      .checkout-btn { padding: 13px; font-size: 15px; }
+
+      /* FOOTER */
+      .footer {
+        padding: 30px 18px 18px;
+        border-radius: 22px 22px 0 0;
+        margin-top: 40px;
+      }
       .footer-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 25px;
+        margin-bottom: 25px;
       }
+      .footer-brand { font-size: 22px; }
+      .footer-desc { font-size: 13px; }
+      .footer-col h4 { font-size: 15px; margin-bottom: 15px; }
+      .footer-links a { font-size: 13px; }
+      .footer-contact-item { margin-bottom: 14px; }
+      .footer-contact-item .icon-box { width: 36px; height: 36px; font-size: 14px; }
+      .footer-contact-item a,
+      .footer-contact-item .value { font-size: 13px; }
       .footer-bottom {
         flex-direction: column;
         text-align: center;
+        padding-top: 18px;
+        gap: 12px;
       }
-      .footer { padding: 35px 20px 20px; }
+      .footer-copy { font-size: 12px; }
+      .footer-payment i { font-size: 20px; }
+    }
+
+    /* Mobile nhỏ (dưới 480px) */
+    @media (max-width: 480px) {
+      .brand { font-size: 18px; }
+      .banner-text h1 { font-size: 20px; }
+      .banner-text p { font-size: 13px; }
+      .banner-emoji { font-size: 42px; }
+
+      .section-title { font-size: 16px; }
+      .section-title i { font-size: 16px; }
+
+      .product-grid { gap: 10px; }
+
+      .product-card {
+        padding: 8px 6px 10px;
+        border-radius: 14px;
+      }
+
+      .product-img { height: 95px; border-radius: 10px; }
+
+      .product-name {
+        font-size: 12px;
+        min-height: 30px;
+      }
+
+      .product-price { font-size: 14px; }
+      .product-price small { font-size: 10px; }
+
+      .product-stock { font-size: 10px; margin-bottom: 6px; }
+
+      .buy-btn {
+        padding: 7px 8px;
+        font-size: 11px;
+        gap: 4px;
+      }
+      .buy-btn i { font-size: 10px; }
+
+      .stock-badge {
+        font-size: 8px;
+        padding: 2px 6px;
+      }
+    }
+
+    /* Mobile rất nhỏ (dưới 360px) */
+    @media (max-width: 360px) {
+      .product-img { height: 85px; }
+      .product-name { font-size: 11px; min-height: 28px; }
+      .product-price { font-size: 13px; }
+      .buy-btn { font-size: 10px; padding: 6px 6px; }
+      .buy-btn i { display: none; }
     }
   </style>
 </head>
@@ -923,7 +1146,7 @@
     </div>
   </div>
 
-  <!-- ========== SECTION 1: XE ĐUA HOT ========== -->
+  <!-- SECTION 1: XE ĐUA HOT -->
   <h2 class="section-title"><i class="fas fa-flag-checkered"></i> Xe đua HOT</h2>
   <div class="product-grid searchable-grid" id="grid1">
     <div class="product-card" data-id="1" data-name="Hot Wheels Twin Mill" data-price="189000" data-stock="12" data-img="https://i.ebayimg.com/images/g/9qQAAOSw0wNjE~yn/s-l1600.jpg">
@@ -985,7 +1208,7 @@
     <div class="no-result">Không tìm thấy sản phẩm phù hợp</div>
   </div>
 
-  <!-- ========== SECTION 2: XE THỂ THAO & SIÊU XE ========== -->
+  <!-- SECTION 2: XE THỂ THAO & SIÊU XE -->
   <h2 class="section-title"><i class="fas fa-bolt"></i> Xe thể thao & Siêu xe</h2>
   <div class="product-grid searchable-grid" id="grid2">
     <div class="product-card" data-id="4" data-name="Hot Wheels Corvette C8" data-price="225000" data-stock="15" data-img="https://i.ebayimg.com/images/g/kzAAAOSwJWdjE~2R/s-l1600.jpg">
@@ -1055,7 +1278,7 @@
     <div class="no-result">Không tìm thấy sản phẩm phù hợp</div>
   </div>
 
-  <!-- ========== SECTION 3: XE ĐỊA HÌNH & OFF-ROAD ========== -->
+  <!-- SECTION 3: XE ĐỊA HÌNH & OFF-ROAD -->
   <h2 class="section-title"><i class="fas fa-mountain"></i> Xe địa hình & Off-road</h2>
   <div class="product-grid searchable-grid" id="grid3">
     <div class="product-card" data-id="16" data-name="Hot Wheels Monster Truck Bigfoot" data-price="215000" data-stock="8" data-img="https://i.ebayimg.com/images/g/2RAAAOSwNnRYi1sh/s-l1600.jpg">
@@ -1110,10 +1333,9 @@
   </div>
 </div>
 
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-grid">
-    <!-- Cột 1: Thương hiệu -->
     <div class="footer-col">
       <span class="footer-brand">HMB Agency</span>
       <p class="footer-desc">
@@ -1127,7 +1349,6 @@
       </div>
     </div>
 
-    <!-- Cột 2: Hỗ trợ -->
     <div class="footer-col">
       <h4>Hỗ trợ</h4>
       <ul class="footer-links">
@@ -1139,7 +1360,6 @@
       </ul>
     </div>
 
-    <!-- Cột 3: Liên hệ -->
     <div class="footer-col">
       <h4>Liên hệ</h4>
       <div class="footer-contact-item">
@@ -1354,7 +1574,6 @@
       closeCart();
     });
 
-    // ===== TÌM KIẾM TRÊN TẤT CẢ CÁC GRID =====
     function performSearch() {
       const keyword = searchInput.value.trim().toLowerCase();
       const grids = document.querySelectorAll('.searchable-grid');
