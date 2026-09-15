@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HMB Agency - Hot Wheels</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fb;
+      padding: 0 20px 20px;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 32px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      padding: 0 25px 0;
+    }
+
+    /* HEADER */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 5px 15px;
+      border-bottom: 2px solid #eaeef5;
+      margin-bottom: 25px;
+    }
+
+    .brand {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #e63946, #ff8c42);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      white-space: nowrap;
+    }
+
+    .header-cart {
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .header-cart:hover {
+      transform: scale(1.05);
+    }
+
+    .header-cart i {
+      font-size: 26px;
+      color: #1e293b;
+      background: #f1f4f9;
+      padding: 12px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      display: block;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background: #e63946;
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 4px 8px rgba(230, 57, 70, 0.4);
+    }
+
+    /* BANNER */
+    .banner {
+      background: linear-gradient(120deg, #0b1a2f, #1e3b5c);
+      border-radius: 28px;
+      padding: 40px 45px;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      box-shadow: 0 18px 30px -8px rgba(0, 20, 40, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner::after {
+      content: "⚡🔥";
+      font-size: 120px;
+      position: absolute;
+      right: 10px;
+      bottom: -20px;
+      opacity: 0.1;
+      transform: rotate(-10deg);
+      pointer-events: none;
+    }
+
+    .banner-text h1 {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .banner-text h1 span {
+      background: linear-gradient(135deg, #ffd966, #ffaa33);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .banner-text p {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-bottom: 18px;
+      font-weight: 400;
+    }
+
+    .banner-btn {
+      background: #ffb347;
+      color: #0b1a2f;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 8px 18px rgba(255, 180, 71, 0.3);
+    }
+
+    .banner-btn:hover {
+      background: #ffa51f;
+      transform: translateY(-3px);
+      box-shadow: 0 14px 24px rgba(255, 180, 71, 0.4);
+    }
+
+    .banner-emoji {
+      font-size: 90px;
+      filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.4));
+    }
+
+    /* SEARCH */
+    .search-section {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 35px;
+    }
+
+    .search-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .search-wrapper input {
+      width: 100%;
+      padding: 15px 55px 15px 22px;
+      border-radius: 50px;
+      border: 2px solid #e4eaf2;
+      background: #f8fafd;
+      font-size: 16px;
+      color: #1e293b;
+      outline: none;
+      transition: all 0.2s;
+      font-family: inherit;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+    }
+
+    .search-wrapper input::placeholder {
+      color: #9aa9bb;
+    }
+
+    .search-wrapper input:focus {
+      border-color: #e63946;
+      background: white;
+      box-shadow: 0 8px 24px rgba(230, 57, 70, 0.12);
+    }
+
+    .search-wrapper .search-icon {
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: linear-gradient(135deg, #e63946, #ff8c42);
+      color: white;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      pointer-events: none;
+      box-shadow: 0 4px 10px rgba(230, 57, 70, 0.3);
+    }
+
+    /* SECTIONS */
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0f1e2e;
+      margin: 30px 0 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title i {
+      color: #e63946;
+      font-size: 26px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 26px;
+      margin-bottom: 30px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 24px;
+      padding: 18px 16px 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+      border: 1px solid #edf1f9;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 22px 30px -10px rgba(0, 0, 0, 0.15);
+      border-color: #d9e2f0;
+    }
+
+    .product-card.hidden {
+      display: none;
+    }
+
+    .stock-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: #10b981;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+      z-index: 2;
+      letter-spacing: 0.3px;
+    }
+
+    .stock-badge.low {
+      background: #f59e0b;
+      box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+    }
+
+    .stock-badge.out {
+      background: #ef4444;
+      box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      background: #f9fbfe;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      display: block;
+    }
+
+    .product-card:hover .product-img img {
+      transform: scale(1.08);
+    }
+
+    .product-name {
+      font-weight: 700;
+      font-size: 17px;
+      color: #111e2d;
+      margin-bottom: 6px;
+      line-height: 1.3;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-price {
+      font-size: 22px;
+      font-weight: 800;
+      color: #e63946;
+      margin: 4px 0 6px;
+    }
+
+    .product-price small {
+      font-size: 14px;
+      font-weight: 500;
+      color: #7e8a9a;
+      text-decoration: line-through;
+      margin-left: 6px;
+    }
+
+    .product-stock {
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    .product-stock strong {
+      color: #10b981;
+      font-weight: 700;
+    }
+
+    .product-stock.low strong {
+      color: #f59e0b;
+    }
+
+    .product-stock.out strong {
+      color: #ef4444;
+    }
+
+    .buy-btn {
+      background: linear-gradient(145deg, #1e293b, #0f1a2b);
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 15px;
+      width: 100%;
+      cursor: pointer;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    .buy-btn:hover:not(:disabled) {
+      background: linear-gradient(145deg, #e63946, #c12b36);
+      box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
+    }
+
+    .buy-btn:disabled {
+      background: #cbd5e1;
+      cursor: not-allowed;
+      box-shadow: none;
+      color: #64748b;
+    }
+
+    .no-result {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 40px 20px;
+      color: #8596aa;
+      font-style: italic;
+      font-size: 16px;
+      display: none;
+    }
+
+    .no-result.show {
+      display: block;
+    }
+
+    /* CART MODAL */
+    .cart-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.85);
+      width: 520px;
+      max-width: 92vw;
+      max-height: 85vh;
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      padding: 22px 22px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+    }
+
+    .cart-modal.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #edf2f9;
+      padding-bottom: 15px;
+      margin-bottom: 16px;
+    }
+
+    .cart-header h3 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0f1e2e;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cart-header h3 i {
+      color: #e63946;
+    }
+
+    .close-cart {
+      background: #f1f4f9;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #5e6f88;
+      transition: 0.2s;
+      line-height: 1;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-cart:hover {
+      background: #e63946;
+      color: white;
+      transform: rotate(90deg);
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding-right: 6px;
+      margin-bottom: 15px;
+      min-height: 80px;
+      max-height: 45vh;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #f8fafd;
+      border-radius: 18px;
+      padding: 12px 14px;
+      border: 1px solid #e4eaf2;
+      animation: fadeIn 0.2s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .cart-item-icon {
+      width: 55px;
+      height: 55px;
+      border-radius: 14px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .cart-item-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cart-item-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .cart-item-name {
+      font-weight: 700;
+      color: #141f2e;
+      font-size: 15px;
+      margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .cart-item-price {
+      font-weight: 700;
+      color: #e63946;
+      font-size: 15px;
+    }
+
+    .cart-item-qty {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .qty-btn {
+      background: white;
+      border: 1px solid #d0dae8;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      color: #1e293b;
+      transition: 0.1s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qty-btn:hover {
+      background: #eef3fc;
+      border-color: #a0b3cc;
+    }
+
+    .qty-value {
+      font-weight: 600;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .cart-item-remove {
+      background: none;
+      border: none;
+      color: #9aa9bb;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 4px;
+      transition: 0.2s;
+      flex-shrink: 0;
+    }
+
+    .cart-item-remove:hover {
+      color: #e63946;
+      transform: scale(1.2);
+    }
+
+    .cart-total {
+      border-top: 2px solid #edf2f9;
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .cart-total span:last-child {
+      color: #e63946;
+    }
+
+    .checkout-btn {
+      background: #0f1e2e;
+      color: white;
+      border: none;
+      padding: 16px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 17px;
+      cursor: pointer;
+      transition: 0.2s;
+      width: 100%;
+    }
+
+    .checkout-btn:hover {
+      background: #e63946;
+    }
+
+    .empty-cart {
+      text-align: center;
+      color: #8b9bb0;
+      padding: 40px 10px;
+      font-style: italic;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 20, 40, 0.45);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.25s;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      margin-top: 60px;
+      background: linear-gradient(135deg, #0b1a2f 0%, #1a2f4a 100%);
+      color: #cbd5e1;
+      padding: 50px 45px 25px;
+      border-radius: 28px 28px 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #e63946, #ff8c42, #ffd966, #e63946);
+      background-size: 300% 100%;
+      animation: gradientMove 4s linear infinite;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 300% 50%; }
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.2fr;
+      gap: 50px;
+      max-width: 1300px;
+      margin: 0 auto 35px;
+    }
+
+    .footer-col h4 {
+      font-size: 17px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 12px;
+      letter-spacing: 0.3px;
+    }
+
+    .footer-col h4::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background: linear-gradient(90deg, #e63946, #ff8c42);
+      border-radius: 3px;
+    }
+
+    .footer-brand {
+      font-size: 26px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffd966, #ff8c42);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .footer-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-social a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-social a:hover {
+      background: linear-gradient(135deg, #e63946, #ff8c42);
+      color: white;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(230, 57, 70, 0.4);
+      border-color: transparent;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links a i {
+      font-size: 10px;
+      color: #e63946;
+      transition: transform 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #ff8c42;
+      padding-left: 4px;
+    }
+
+    .footer-links a:hover i {
+      transform: translateX(3px);
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+
+    .footer-contact-item .icon-box {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, rgba(230, 57, 70, 0.15), rgba(255, 140, 66, 0.15));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff8c42;
+      font-size: 16px;
+      flex-shrink: 0;
+      border: 1px solid rgba(255, 140, 66, 0.2);
+    }
+
+    .footer-contact-item .info {
+      flex: 1;
+    }
+
+    .footer-contact-item .label {
+      font-size: 12px;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .footer-contact-item a,
+    .footer-contact-item .value {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14.5px;
+      transition: color 0.2s;
+      display: block;
+      line-height: 1.4;
+    }
+
+    .footer-contact-item a:hover {
+      color: #ff8c42;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    .footer-copy strong {
+      color: #ff8c42;
+      font-weight: 700;
+    }
+
+    .footer-payment {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-payment i {
+      font-size: 24px;
+      color: #94a3b8;
+      transition: color 0.2s;
+    }
+
+    .footer-payment i:hover {
+      color: #ff8c42;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+      .footer { padding: 40px 25px 20px; }
+    }
+
+    @media (max-width: 700px) {
+      .container { padding: 0 12px 0; }
+      .banner { flex-direction: column; text-align: center; padding: 30px 18px; }
+      .banner-emoji { font-size: 60px; margin-top: 15px; }
+      .banner-text h1 { font-size: 28px; }
+      .brand { font-size: 22px; }
+      .cart-modal { width: 95vw; padding: 18px; max-height: 90vh; }
+      .product-img { height: 140px; }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer { padding: 35px 20px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- HEADER -->
+  <header class="header">
+    <div class="brand">HMB Agency</div>
+    <div class="header-cart" id="headerCartBtn">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="cart-count" id="cartCount">0</span>
+    </div>
+  </header>
+
+  <!-- BANNER -->
+  <section class="banner">
+    <div class="banner-text">
+      <h1>SIÊU SALE <span>HOT WHEELS</span></h1>
+      <p>Bộ sưu tập xe đồ chơi đẳng cấp – Giảm đến 30%</p>
+      <button class="banner-btn" onclick="document.querySelector('.section-title').scrollIntoView({behavior:'smooth'})">Mua ngay <i class="fas fa-arrow-right"></i></button>
+    </div>
+    <div class="banner-emoji">🏎️🔥</div>
+  </section>
+
+  <!-- SEARCH -->
+  <div class="search-section">
+    <div class="search-wrapper">
+      <input type="text" id="searchInput" placeholder="Tìm kiếm xe Hot Wheels...">
+      <div class="search-icon"><i class="fas fa-search"></i></div>
+    </div>
+  </div>
+
+  <!-- ========== SECTION 1: XE ĐUA HOT ========== -->
+  <h2 class="section-title"><i class="fas fa-flag-checkered"></i> Xe đua HOT</h2>
+  <div class="product-grid searchable-grid" id="grid1">
+    <div class="product-card" data-id="1" data-name="Hot Wheels Twin Mill" data-price="189000" data-stock="12" data-img="https://i.ebayimg.com/images/g/9qQAAOSw0wNjE~yn/s-l1600.jpg">
+      <div class="stock-badge">Còn 12</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/9qQAAOSw0wNjE~yn/s-l1600.jpg" alt="Twin Mill"></div>
+      <div class="product-name">Hot Wheels Twin Mill</div>
+      <div class="product-price">189.000đ <small>269.000đ</small></div>
+      <div class="product-stock">Kho: <strong>12</strong> sản phẩm</div>
+      <button class="buy-btn"><i class="fas fa-cart-plus"></i> Mua ngay</button>
+    </div>
+    <div class="product-card" data-id="2" data-name="Hot Wheels Bone Shaker" data-price="175000" data-stock="8" data-img="https://i.ebayimg.com/images/g/YqAAAOSwE9VjE~zJ/s-l1600.jpg">
+      <div class="stock-badge">Còn 8</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/YqAAAOSwE9VjE~zJ/s-l1600.jpg" alt="Bone Shaker"></div>
+      <div class="product-name">Hot Wheels Bone Shaker</div>
+      <div class="product-price">175.000đ <small>249.000đ</small></div>
+      <div class="product-stock">Kho: <strong>8</strong> sản phẩm</div>
+      <button class="buy-btn"><i class="fas fa-cart-plus"></i> Mua ngay</button>
+    </div>
+    <div class="product-card" data-id="3" data-name="Hot Wheels Deora II" data-price="205000" data-stock="5" data-img="https://i.ebayimg.com/images/g/8WQAAOSwv0NjE~0L/s-l1600.jpg">
+      <div class="stock-badge low">Còn 5</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/8WQAAOSwv0NjE~0L/s-l1600.jpg" alt="Deora II"></div>
+      <div class="product-name">Hot Wheels Deora II</div>
+      <div class="product-price">205.000đ <small>299.000đ</small></div>
+      <div class="product-stock low">Kho: <strong>5</strong> sản phẩm</div>
+      <button class="buy-btn"><i class="fas fa-cart-plus"></i> Mua ngay</button>
+    </div>
+    <div class="product-card" data-id="7" data-name="Hot Wheels Rodger Dodger" data-price="195000" data-stock="10" data-img="https://i.ebayimg.com/images/g/R~AAAOSwNnRYi1sP/s-l1600.jpg">
+      <div class="stock-badge">Còn 10</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/R~AAAOSwNnRYi1sP/s-l1600.jpg" alt="Rodger Dodger"></div>
+      <div class="product-name">Hot Wheels Rodger Dodger</div>
+      <div class="product-price">195.000đ <small>279.000đ</small></div>
+      <div class="product-stock">Kho: <strong>10</strong> sản phẩm</div>
+      <button class="buy-btn"><i class="fas fa-cart-plus"></i> Mua ngay</button>
+    </div>
+    <div class="product-card" data-id="8" data-name="Hot Wheels Rip Rod" data-price="169000" data-stock="6" data-img="https://i.ebayimg.com/images/g/p~AAAOSwB4BZ1k9W/s-l1600.jpg">
+      <div class="stock-badge">Còn 6</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/p~AAAOSwB4BZ1k9W/s-l1600.jpg" alt="Rip Rod"></div>
+      <div class="product-name">Hot Wheels Rip Rod</div>
+      <div class="product-price">169.000đ <small>239.000đ</small></div>
+      <div class="product-stock">Kho: <strong>6</strong> sản phẩm</div>
+      <button class="buy-btn"><i class="fas fa-cart-plus"></i> Mua ngay</button>
+    </div>
+    <div class="product-card" data-id="9" data-name="Hot Wheels Night Shifter" data-price="185000" data-stock="2" data-img="https://i.ebayimg.com/images/g/2~AAAOSw5V9Zi1sR/s-l1600.jpg">
+      <div class="stock-badge low">Còn 2</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/2~AAAOSw5V9Zi1sR/s-l1600.jpg" alt="Night Shifter"></div>
+      <div class="product-name">Hot Wheels Night Shifter</div>
+      <div class="product-price">185.000đ <small>259.000đ</small></div>
+      <div class="product-stock low">Kho: <strong>2</strong> sản phẩm</div>
+      <button class="buy-btn"><i class="fas fa-cart-plus"></i> Mua ngay</button>
+    </div>
+    <div class="product-card" data-id="10" data-name="Hot Wheels Back to the Future DeLorean" data-price="219000" data-stock="9" data-img="https://i.ebayimg.com/images/g/j~AAAOSw~d1Zi1sT/s-l1600.jpg">
+      <div class="stock-badge">Còn 9</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/j~AAAOSw~d1Zi1sT/s-l1600.jpg" alt="DeLorean"></div>
+      <div class="product-name">Hot Wheels DeLorean BTTF</div>
+      <div class="product-price">219.000đ <small>309.000đ</small></div>
+      <div class="product-stock">Kho: <strong>9</strong> sản phẩm</div>
+      <button class="buy-btn"><i class="fas fa-cart-plus"></i> Mua ngay</button>
+    </div>
+    <div class="no-result">Không tìm thấy sản phẩm phù hợp</div>
+  </div>
+
+  <!-- ========== SECTION 2: XE THỂ THAO & SIÊU XE ========== -->
+  <h2 class="section-title"><i class="fas fa-bolt"></i> Xe thể thao & Siêu xe</h2>
+  <div class="product-grid searchable-grid" id="grid2">
+    <div class="product-card" data-id="4" data-name="Hot Wheels Corvette C8" data-price="225000" data-stock="15" data-img="https://i.ebayimg.com/images/g/kzAAAOSwJWdjE~2R/s-l1600.jpg">
+      <div class="stock-badge">Còn 15</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/kzAAAOSwJWdjE~2R/s-l1600.jpg" alt="Corvette C8"></div>
+      <div class="product-name">Hot Wheels Corvette C8</div>
+      <div class="product-price">225.000đ <small>319.000đ</small></div>
+      <div class="product-stock">Kho: <strong>15</strong> sản phẩm</div>
+      <button class="buy-btn"><i class="fas fa-cart-plus"></i> Mua ngay</button>
+    </div>
+    <div class="product-card" data-id="5" data-name="Hot Wheels Porsche 911" data-price="239000" data-stock="3" data-img="https://i.ebayimg.com/images/g/xdAAAOSwI~tjE~4F/s-l1600.jpg">
+      <div class="stock-badge low">Còn 3</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/xdAAAOSwI~tjE~4F/s-l1600.jpg" alt="Porsche 911"></div>
+      <div class="product-name">Hot Wheels Porsche 911</div>
+      <div class="product-price">239.000đ <small>329.000đ</small></div>
+      <div class="product-stock low">Kho: <strong>3</strong> sản phẩm</div>
+      <button class="buy-btn"><i class="fas fa-cart-plus"></i> Mua ngay</button>
+    </div>
+    <div class="product-card" data-id="6" data-name="Hot Wheels Lamborghini" data-price="259000" data-stock="0" data-img="https://i.ebayimg.com/images/g/9wQAAOSwEK9jE~6T/s-l1600.jpg">
+      <div class="stock-badge out">Hết hàng</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/9wQAAOSwEK9jE~6T/s-l1600.jpg" alt="Lamborghini"></div>
+      <div class="product-name">Hot Wheels Lamborghini</div>
+      <div class="product-price">259.000đ <small>359.000đ</small></div>
+      <div class="product-stock out">Kho: <strong>0</strong> sản phẩm</div>
+      <button class="buy-btn" disabled><i class="fas fa-ban"></i> Hết hàng</button>
+    </div>
+    <div class="product-card" data-id="11" data-name="Hot Wheels Ferrari F40" data-price="249000" data-stock="7" data-img="https://i.ebayimg.com/images/g/fRAAAOSwo4pYi1sX/s-l1600.jpg">
+      <div class="stock-badge">Còn 7</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/fRAAAOSwo4pYi1sX/s-l1600.jpg" alt="Ferrari F40"></div>
+      <div class="product-name">Hot Wheels Ferrari F40</div>
+      <div class="product-price">249.000đ <small>339.000đ</small></div>
+      <div class="product-stock">Kho: <strong>7</strong> sản phẩm</div>
+      <button class="buy-btn"><i class="fas fa-cart-plus"></i> Mua ngay</button>
+    </div>
+    <div class="product-card" data-id="12" data-name="Hot Wheels McLaren P1" data-price="265000" data-stock="4" data-img="https://i.ebayimg.com/images/g/xRAAAOSwNnRYi1sZ/s-l1600.jpg">
+      <div class="stock-badge low">Còn 4</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/xRAAAOSwNnRYi1sZ/s-l1600.jpg" alt="McLaren P1"></div>
+      <div class="product-name">Hot Wheels McLaren P1</div>
+      <div class="product-price">265.000đ <small>359.000đ</small></div>
+      <div class="product-stock low">Kho: <strong>4</strong> sản phẩm</div>
+      <button class="buy-btn"><i class="fas fa-cart-plus"></i> Mua ngay</button>
+    </div>
+    <div class="product-card" data-id="13" data-name="Hot Wheels Nissan GT-R R35" data-price="229000" data-stock="11" data-img="https://i.ebayimg.com/images/g/zRAAAOSwo4pYi1sb/s-l1600.jpg">
+      <div class="stock-badge">Còn 11</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/zRAAAOSwo4pYi1sb/s-l1600.jpg" alt="Nissan GT-R"></div>
+      <div class="product-name">Hot Wheels Nissan GT-R R35</div>
+      <div class="product-price">229.000đ <small>319.000đ</small></div>
+      <div class="product-stock">Kho: <strong>11</strong> sản phẩm</div>
+      <button class="buy-btn"><i class="fas fa-cart-plus"></i> Mua ngay</button>
+    </div>
+    <div class="product-card" data-id="14" data-name="Hot Wheels Bugatti Chiron" data-price="289000" data-stock="6" data-img="https://i.ebayimg.com/images/g/0RAAAOSw5V9Zi1sd/s-l1600.jpg">
+      <div class="stock-badge">Còn 6</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/0RAAAOSw5V9Zi1sd/s-l1600.jpg" alt="Bugatti Chiron"></div>
+      <div class="product-name">Hot Wheels Bugatti Chiron</div>
+      <div class="product-price">289.000đ <small>389.000đ</small></div>
+      <div class="product-stock">Kho: <strong>6</strong> sản phẩm</div>
+      <button class="buy-btn"><i class="fas fa-cart-plus"></i> Mua ngay</button>
+    </div>
+    <div class="product-card" data-id="15" data-name="Hot Wheels Ford Mustang GT" data-price="199000" data-stock="14" data-img="https://i.ebayimg.com/images/g/1RAAAOSwB4BZi1sf/s-l1600.jpg">
+      <div class="stock-badge">Còn 14</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/1RAAAOSwB4BZi1sf/s-l1600.jpg" alt="Mustang GT"></div>
+      <div class="product-name">Hot Wheels Ford Mustang GT</div>
+      <div class="product-price">199.000đ <small>279.000đ</small></div>
+      <div class="product-stock">Kho: <strong>14</strong> sản phẩm</div>
+      <button class="buy-btn"><i class="fas fa-cart-plus"></i> Mua ngay</button>
+    </div>
+    <div class="no-result">Không tìm thấy sản phẩm phù hợp</div>
+  </div>
+
+  <!-- ========== SECTION 3: XE ĐỊA HÌNH & OFF-ROAD ========== -->
+  <h2 class="section-title"><i class="fas fa-mountain"></i> Xe địa hình & Off-road</h2>
+  <div class="product-grid searchable-grid" id="grid3">
+    <div class="product-card" data-id="16" data-name="Hot Wheels Monster Truck Bigfoot" data-price="215000" data-stock="8" data-img="https://i.ebayimg.com/images/g/2RAAAOSwNnRYi1sh/s-l1600.jpg">
+      <div class="stock-badge">Còn 8</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/2RAAAOSwNnRYi1sh/s-l1600.jpg" alt="Monster Truck"></div>
+      <div class="product-name">Hot Wheels Monster Truck Bigfoot</div>
+      <div class="product-price">215.000đ <small>299.000đ</small></div>
+      <div class="product-stock">Kho: <strong>8</strong> sản phẩm</div>
+      <button class="buy-btn"><i class="fas fa-cart-plus"></i> Mua ngay</button>
+    </div>
+    <div class="product-card" data-id="17" data-name="Hot Wheels Jeep Wrangler" data-price="185000" data-stock="5" data-img="https://i.ebayimg.com/images/g/3RAAAOSwo4pYi1sj/s-l1600.jpg">
+      <div class="stock-badge low">Còn 5</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/3RAAAOSwo4pYi1sj/s-l1600.jpg" alt="Jeep Wrangler"></div>
+      <div class="product-name">Hot Wheels Jeep Wrangler</div>
+      <div class="product-price">185.000đ <small>259.000đ</small></div>
+      <div class="product-stock low">Kho: <strong>5</strong> sản phẩm</div>
+      <button class="buy-btn"><i class="fas fa-cart-plus"></i> Mua ngay</button>
+    </div>
+    <div class="product-card" data-id="18" data-name="Hot Wheels Baja Bug" data-price="169000" data-stock="10" data-img="https://i.ebayimg.com/images/g/4RAAAOSwB4BZi1sl/s-l1600.jpg">
+      <div class="stock-badge">Còn 10</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/4RAAAOSwB4BZi1sl/s-l1600.jpg" alt="Baja Bug"></div>
+      <div class="product-name">Hot Wheels Baja Bug</div>
+      <div class="product-price">169.000đ <small>239.000đ</small></div>
+      <div class="product-stock">Kho: <strong>10</strong> sản phẩm</div>
+      <button class="buy-btn"><i class="fas fa-cart-plus"></i> Mua ngay</button>
+    </div>
+    <div class="product-card" data-id="19" data-name="Hot Wheels Land Rover Defender" data-price="209000" data-stock="7" data-img="https://i.ebayimg.com/images/g/5RAAAOSw5V9Zi1sn/s-l1600.jpg">
+      <div class="stock-badge">Còn 7</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/5RAAAOSw5V9Zi1sn/s-l1600.jpg" alt="Land Rover"></div>
+      <div class="product-name">Hot Wheels Land Rover Defender</div>
+      <div class="product-price">209.000đ <small>289.000đ</small></div>
+      <div class="product-stock">Kho: <strong>7</strong> sản phẩm</div>
+      <button class="buy-btn"><i class="fas fa-cart-plus"></i> Mua ngay</button>
+    </div>
+    <div class="product-card" data-id="20" data-name="Hot Wheels Toyota Tacoma" data-price="189000" data-stock="9" data-img="https://i.ebayimg.com/images/g/6RAAAOSwNnRYi1sp/s-l1600.jpg">
+      <div class="stock-badge">Còn 9</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/6RAAAOSwNnRYi1sp/s-l1600.jpg" alt="Toyota Tacoma"></div>
+      <div class="product-name">Hot Wheels Toyota Tacoma</div>
+      <div class="product-price">189.000đ <small>269.000đ</small></div>
+      <div class="product-stock">Kho: <strong>9</strong> sản phẩm</div>
+      <button class="buy-btn"><i class="fas fa-cart-plus"></i> Mua ngay</button>
+    </div>
+    <div class="product-card" data-id="21" data-name="Hot Wheels Ford Raptor" data-price="199000" data-stock="0" data-img="https://i.ebayimg.com/images/g/7RAAAOSwo4pYi1sr/s-l1600.jpg">
+      <div class="stock-badge out">Hết hàng</div>
+      <div class="product-img"><img src="https://i.ebayimg.com/images/g/7RAAAOSwo4pYi1sr/s-l1600.jpg" alt="Ford Raptor"></div>
+      <div class="product-name">Hot Wheels Ford Raptor</div>
+      <div class="product-price">199.000đ <small>279.000đ</small></div>
+      <div class="product-stock out">Kho: <strong>0</strong> sản phẩm</div>
+      <button class="buy-btn" disabled><i class="fas fa-ban"></i> Hết hàng</button>
+    </div>
+    <div class="no-result">Không tìm thấy sản phẩm phù hợp</div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <!-- Cột 1: Thương hiệu -->
+    <div class="footer-col">
+      <span class="footer-brand">HMB Agency</span>
+      <p class="footer-desc">
+        Cửa hàng chuyên cung cấp xe đồ chơi Hot Wheels chính hãng với bộ sưu tập đa dạng, chất lượng cao và giá cả cạnh tranh nhất thị trường.
+      </p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+
+    <!-- Cột 2: Hỗ trợ -->
+    <div class="footer-col">
+      <h4>Hỗ trợ</h4>
+      <ul class="footer-links">
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Hướng dẫn mua hàng</a></li>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Chính sách đổi trả</a></li>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Chính sách vận chuyển</a></li>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Bảo mật thông tin</a></li>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Câu hỏi thường gặp</a></li>
+      </ul>
+    </div>
+
+    <!-- Cột 3: Liên hệ -->
+    <div class="footer-col">
+      <h4>Liên hệ</h4>
+      <div class="footer-contact-item">
+        <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
+        <div class="info">
+          <div class="label">Hotline</div>
+          <a href="tel:0855555140">0855 555 140</a>
+        </div>
+      </div>
+      <div class="footer-contact-item">
+        <div class="icon-box"><i class="fas fa-envelope"></i></div>
+        <div class="info">
+          <div class="label">Email</div>
+          <a href="mailto:hmb.agency.group@gmail.com">hmb.agency.group@gmail.com</a>
+        </div>
+      </div>
+      <div class="footer-contact-item">
+        <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="info">
+          <div class="label">Địa chỉ</div>
+          <span class="value">TP. Hồ Chí Minh, Việt Nam</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-copy">
+      © 2025 <strong>HMB Agency</strong> - Hot Wheels Việt Nam. Tất cả các quyền được bảo lưu.
+    </div>
+    <div class="footer-payment">
+      <i class="fab fa-cc-visa"></i>
+      <i class="fab fa-cc-mastercard"></i>
+      <i class="fab fa-cc-paypal"></i>
+      <i class="fas fa-money-bill-wave"></i>
+    </div>
+  </div>
+</footer>
+
+<!-- CART MODAL -->
+<div class="cart-modal" id="cartModal">
+  <div class="cart-header">
+    <h3><i class="fas fa-shopping-bag"></i> Giỏ hàng</h3>
+    <button class="close-cart" id="closeCartBtn">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItemsContainer">
+    <div class="empty-cart">Giỏ hàng trống</div>
+  </div>
+  <div class="cart-total">
+    <span>Tổng cộng:</span>
+    <span id="cartTotalAmount">0đ</span>
+  </div>
+  <button class="checkout-btn" id="checkoutBtn">Thanh toán</button>
+</div>
+
+<div class="overlay" id="overlay"></div>
+
+<script>
+  (function() {
+    let cart = [];
+
+    const cartCountEl = document.getElementById('cartCount');
+    const cartItemsContainer = document.getElementById('cartItemsContainer');
+    const cartTotalAmount = document.getElementById('cartTotalAmount');
+    const cartModal = document.getElementById('cartModal');
+    const overlay = document.getElementById('overlay');
+    const headerCartBtn = document.getElementById('headerCartBtn');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    const searchInput = document.getElementById('searchInput');
+
+    function openCart() {
+      cartModal.classList.add('open');
+      overlay.classList.add('active');
+    }
+
+    function closeCart() {
+      cartModal.classList.remove('open');
+      overlay.classList.remove('active');
+    }
+
+    headerCartBtn.addEventListener('click', openCart);
+    closeCartBtn.addEventListener('click', closeCart);
+    overlay.addEventListener('click', closeCart);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && cartModal.classList.contains('open')) {
+        closeCart();
+      }
+    });
+
+    function updateCartUI() {
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartCountEl.textContent = totalItems;
+
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<div class="empty-cart">Giỏ hàng trống</div>';
+        cartTotalAmount.textContent = '0đ';
+        return;
+      }
+
+      let html = '';
+      let total = 0;
+
+      cart.forEach(item => {
+        total += item.price * item.quantity;
+        html += `
+          <div class="cart-item" data-id="${item.id}">
+            <div class="cart-item-icon"><img src="${item.img}" alt="${item.name}"></div>
+            <div class="cart-item-info">
+              <div class="cart-item-name">${item.name}</div>
+              <div class="cart-item-price">${item.price.toLocaleString('vi-VN')}đ</div>
+              <div class="cart-item-qty">
+                <button class="qty-btn" data-action="decrease" data-id="${item.id}">−</button>
+                <span class="qty-value">${item.quantity}</span>
+                <button class="qty-btn" data-action="increase" data-id="${item.id}">+</button>
+              </div>
+            </div>
+            <button class="cart-item-remove" data-action="remove" data-id="${item.id}"><i class="fas fa-trash-alt"></i></button>
+          </div>
+        `;
+      });
+
+      cartItemsContainer.innerHTML = html;
+      cartTotalAmount.textContent = total.toLocaleString('vi-VN') + 'đ';
+
+      document.querySelectorAll('.qty-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          handleQtyChange(Number(btn.dataset.id), btn.dataset.action);
+        });
+      });
+
+      document.querySelectorAll('.cart-item-remove').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          removeFromCart(Number(btn.dataset.id));
+        });
+      });
+    }
+
+    function handleQtyChange(id, action) {
+      const item = cart.find(i => i.id === id);
+      if (!item) return;
+
+      if (action === 'increase') {
+        item.quantity += 1;
+      } else if (action === 'decrease') {
+        if (item.quantity > 1) {
+          item.quantity -= 1;
+        } else {
+          removeFromCart(id);
+          return;
+        }
+      }
+      updateCartUI();
+    }
+
+    function removeFromCart(id) {
+      cart = cart.filter(item => item.id !== id);
+      updateCartUI();
+    }
+
+    function addToCart(product) {
+      if (product.stock <= 0) {
+        alert('Sản phẩm này đã hết hàng!');
+        return;
+      }
+      const existing = cart.find(item => item.id === product.id);
+      if (existing) {
+        if (existing.quantity >= product.stock) {
+          alert(`Chỉ còn ${product.stock} sản phẩm trong kho!`);
+          return;
+        }
+        existing.quantity += 1;
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          img: product.img,
+          quantity: 1
+        });
+      }
+      updateCartUI();
+      openCart();
+    }
+
+    document.querySelectorAll('.product-card').forEach(card => {
+      const buyBtn = card.querySelector('.buy-btn');
+      buyBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        addToCart({
+          id: Number(card.dataset.id),
+          name: card.dataset.name,
+          price: Number(card.dataset.price),
+          stock: Number(card.dataset.stock),
+          img: card.dataset.img
+        });
+      });
+    });
+
+    checkoutBtn.addEventListener('click', () => {
+      if (cart.length === 0) {
+        alert('Giỏ hàng của bạn đang trống!');
+        return;
+      }
+      const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
+      alert(`Cảm ơn bạn đã mua hàng!\nTổng thanh toán: ${total.toLocaleString('vi-VN')}đ\n\nChúng tôi sẽ liên hệ qua hotline 0855 555 140.`);
+      cart = [];
+      updateCartUI();
+      closeCart();
+    });
+
+    // ===== TÌM KIẾM TRÊN TẤT CẢ CÁC GRID =====
+    function performSearch() {
+      const keyword = searchInput.value.trim().toLowerCase();
+      const grids = document.querySelectorAll('.searchable-grid');
+
+      grids.forEach(grid => {
+        const cards = grid.querySelectorAll('.product-card');
+        const noResult = grid.querySelector('.no-result');
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const name = card.dataset.name.toLowerCase();
+          const match = name.includes(keyword);
+          if (match) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        if (noResult) {
+          if (visibleCount === 0 && keyword !== '') {
+            noResult.classList.add('show');
+          } else {
+            noResult.classList.remove('show');
+          }
+        }
+      });
+    }
+
+    searchInput.addEventListener('input', performSearch);
+
+    updateCartUI();
+  })();
+</script>
+
+</body>
+</html>
